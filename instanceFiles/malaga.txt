@@ -1,0 +1,48 @@
+malaga
+instances/malaga/
+42
+172
+-14798 4 GGgGGr yyyyyr GGrGGg yyryyy
+1001620 2 GGG yyy
+1001624 4 GGGrr yyyrr rrrGG rrryy
+1103187339 2 GG yy
+1777568746 4 GGgrrGGg yyyrryyy rrrGGrrr rrryyrrr
+250963364 6 rrrGGggGGGg rrryyggyyyg rrrrrGGrrrG rrrrryyrrry GGGrrrrrrrr yyyrrrrrrrr
+294035840 4 GGrrG yyrry rrGGG rryyy
+294035851 4 Grr yrr rGG ryy
+294036640 4 GGGGrr yyyyrr GrrrGg yrrryy
+303010204 4 rrrGGGGGg rrryyyyyy GGGrrrrrr yyyrrrrrr
+331530436 4 GGgGGr yyyyyr rrrGGG rrryyy
+331530676 2 GG yy
+396022705 6 GGggrrrrrGGgg yyggrrrrryygg rrGGrrrrrrrGG rryyrrrrrrryy rrrrGGGGgGrrr rrrryyyyyyrrr
+396025318 4 GGGrrr yyyrrr GrrGGg yrryyy
+396025341 4 GGgGGr yyyyyr GGrGGg yyryyy
+396035145 4 GgrrG yyrry rGGGr ryyyr
+396035176 8 GGGgrrrGggrrr yyygrrryggrrr rrrGrrrrGGrrr rrryrrrryyrrr rrrrGggrrrGGg rrrryggrrryyg rrrrrGGrrrrrG rrrrryyrrrrry
+396035187 4 GgGr yyyr GrGg yryy
+418178028 4 GGGrrr yyyrrr rrGGGG rryyyy
+418178816 6 rrrrrGGggGGgg rrrrryyggyygg rrrrrrrGGrrGG rrrrrrryyrryy GGGGgGrrrrrrr yyyyyyrrrrrrr
+418179582 4 rrGgGg rryyyy GGrrrr yyrrrr
+418185587 4 GGGgrrrrGG yyyyrrrryy rrrrGGGGrr rrrryyyyrr
+418185723 4 GGGrr yyyrr rrGGG rryyy
+418218748 4 GGGGrrrr yyyyrrrr GGrrGGGg yyrryyyy
+418221294 6 GGgggrrGG yygggrryy rrGGGrrrr rryyyrrrr rrrrGGGrr rrrryyyrr
+418376965 4 GGGrr yyyrr rrrGG rrryy
+418976374 4 Grr yrr rGG ryy
+418976383 2 GG yy
+418976387 4 GGGrrr yyyrrr rrrGGG rrryyy
+418976390 2 GG yy
+418976983 4 Grr yrr rGG ryy
+418977426 4 GGrGGg yyryyy rrGrrr rryrrr
+418977709 4 GgrrGg yyrryy rrGGrr rryyrr
+420521859 4 GGrr yyrr rrGG rryy
+420871818 2 GGGG yyyy
+420875258 6 GGrrGgg yyrrygg rrrrrGG rrrrryy rGGGrrr ryyyrrr
+427884105 4 GGrr yyrr rrGG rryy
+432647345 6 GGGgGggrrr yyygyggrrr rrrGrGGrrr rrryryyrrr GrrrrrrGGg yrrrrrryyy
+432647347 4 GGGrrG yyyrry rrrGGG rrryyy
+860118318 4 GGr yyr rrG rry
+891445901 4 GGrr yyrr rrGG rryy
+891445989 4 GGrr yyrr rrGG rryy
+266
+4000
