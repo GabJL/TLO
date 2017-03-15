@@ -30,13 +30,6 @@ void generateSolution(Solution &solution, const cInstance &c)
 {
 	solution.clear();
 
-	// Random Values
-/*	
-	for(int i = 0; i < c.getTotalNumberOfPhases(); i++)
-	{
-		solution.push_back(rand()%56 + 4);
-	}
-*/
 	// "Advanced" solution
 	vector<string> phases;
 	int pos;
@@ -101,30 +94,9 @@ void selectParents(const Population &p, Solution &i1, Solution &i2){
 }
 
 void recombine(Solution &i1,const Solution &i2){
-	int pos = rand()%(i1.size() - 1);
-	for(int i = pos; i < i1.size(); i++){
-		i1[i] = i2[i];
-	}
 }
 
 void mutate(Solution &s, const cInstance &c){
-	bool changed;
-	do{
-		vector<string> phases;
-		int pos = rand()%(s.size());
-		int counter = 0;
-		changed = false;
-		for(int j = 0; j < c.getNumberOfTLlogics(); j++)
-		{
-			phases = c.getPhases(j);
-			if(counter + phases.size() > pos) break;
-			counter += phases.size();
-		}
-		if(!areAllYellow(phases[pos-counter]) && !isSubString(phases[pos-counter],"y",pos)){
-			s[pos] = rand()%55 + 5;
-			changed = true;
-		}
-	}while(!changed);
 }
 
 void merge(Population &p, const  Solution &s, vector<float> &fitness){
