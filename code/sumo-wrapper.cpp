@@ -85,7 +85,7 @@ int main(int argc, char **argv)
 	buildXMLfile(instance, tl_times, current_time);
 	
 	if(argc == 5){
-		current_time = atoi(argv[4]
+		current_time = atoi(argv[4]);
 	}
 
 	cmd = buildCommand(instance, current_time);
