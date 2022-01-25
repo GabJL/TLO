@@ -74,7 +74,7 @@ int main(int argc, char **argv)
 
 	if(argc < 4)
 	{
-		cout << "Usage: " << argv[0] << " <instance_file> <traffic light configuration> <result file>" << endl;
+		cout << "Usage: " << argv[0] << " <instance_file> <traffic light configuration> <result file> <seed>" << endl;
 		exit(-1);
 	}
 
@@ -83,6 +83,10 @@ int main(int argc, char **argv)
 	readTLtime(argv[2], tl_times);
 
 	buildXMLfile(instance, tl_times, current_time);
+	
+	if(argc == 5){
+		current_time = atoi(argv[4]
+	}
 
 	cmd = buildCommand(instance, current_time);
 
@@ -190,8 +194,8 @@ string buildCommand(const cInstance &c, time_t t)
 	cmd += "--no-step-log "; // Disable console output
 //	cmd += "--device.hbefa.probability 1.0 "; // Tripinfo file will include emissions stats	
 	cmd += "--device.emissions.probability 1.0 ";
-//	cmd += "--seed " + to_string(t); // random seed
-	cmd += "--seed 23432"; 
+	cmd += "--seed " + to_string(t); // random seed
+//	cmd += "--seed 23432"; 
 
 	return cmd;
 }
