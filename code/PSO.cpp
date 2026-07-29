@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <ctime>
+#include <sys/wait.h>
 #include "cInstance.hpp"
 #include "simpleXMLParser.hpp"
 
@@ -94,10 +95,20 @@ void readFitnessFile(float &fitness)
 	f.close();
 }
 
+// Aborts if the last system() call (running sumo-wrapper) did not succeed
+void checkExecution(int ret)
+{
+	if(ret == -1 || !WIFEXITED(ret) || WEXITSTATUS(ret) != 0)
+	{
+		cerr << "Error: sumo-wrapper execution failed" << endl;
+		exit(-1);
+	}
+}
+
 float evaluateSolution(const Solution &solution){
 	float fitness;
 	writeSolutionFile(solution);
-	system(command.c_str());
+	checkExecution(system(command.c_str()));
 	readFitnessFile(fitness);
 	return fitness;
 }

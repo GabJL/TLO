@@ -3,11 +3,22 @@
 #include <cstdlib>
 #include <vector>
 #include <string>
-#include <ctime> 
+#include <ctime>
+#include <sys/wait.h>
 #include "cInstance.hpp"
 #include "simpleXMLParser.hpp"
 
 using namespace std;
+
+// Aborts if the last system() call (running sumo-wrapper) did not succeed
+void checkExecution(int ret)
+{
+	if(ret == -1 || !WIFEXITED(ret) || WEXITSTATUS(ret) != 0)
+	{
+		cerr << "Error: sumo-wrapper execution failed" << endl;
+		exit(-1);
+	}
+}
 
 // If all the TL is yellow is a phase for pedestrian (4*lanes)
 bool areAllYellow(string phase) {
@@ -88,7 +99,7 @@ int main(int argc, char **argv)
 
 	generateSolution(solution, c);
 	writeSolutionFile(solution, c);
-	system(command.c_str());
+	checkExecution(system(command.c_str()));
 	readFitnessFile(fitness);
 	best_sol = solution; best_fit = fitness;
 	cout << fitness << endl;
@@ -97,7 +108,7 @@ int main(int argc, char **argv)
 	{
 		generateSolution(solution, c);
 		writeSolutionFile(solution, c);
-		system(command.c_str());
+		checkExecution(system(command.c_str()));
 		readFitnessFile(fitness);
 	cout << fitness << endl;
 		if(fitness < best_fit)
