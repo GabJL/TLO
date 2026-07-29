@@ -113,6 +113,7 @@ void mutate(Solution &s, const cInstance &c){
 		vector<string> phases;
 		int pos = rand()%(s.size());
 		int counter = 0;
+		int yPos;
 		changed = false;
 		for(int j = 0; j < c.getNumberOfTLlogics(); j++)
 		{
@@ -120,7 +121,7 @@ void mutate(Solution &s, const cInstance &c){
 			if(counter + phases.size() > pos) break;
 			counter += phases.size();
 		}
-		if(!areAllYellow(phases[pos-counter]) && !isSubString(phases[pos-counter],"y",pos)){
+		if(!areAllYellow(phases[pos-counter]) && !isSubString(phases[pos-counter],"y",yPos)){
 			s[pos] = rand()%55 + 5;
 			changed = true;
 		}

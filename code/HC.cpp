@@ -115,7 +115,7 @@ int main(int argc, char **argv)
 	cout << "Best solution: " << endl;
 	for(int i = 0; i < c.getTotalNumberOfPhases(); i++)
 		cout << solution[i] << " ";
-	cout << endl << "Fitness: " << fitness_neigh << endl;
+	cout << endl << "Fitness: " << fitness << endl;
 
 	return 0;
 }
