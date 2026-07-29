@@ -5,10 +5,17 @@
 #include <string>
 #include <ctime>
 #include <sys/wait.h>
+#include <unistd.h>
+#include <cstdio>
 #include "cInstance.hpp"
 #include "simpleXMLParser.hpp"
 
 using namespace std;
+
+// tl.txt/result.txt names, PID-prefixed so several instances of this
+// algorithm (or of other algorithms) can run concurrently in the same
+// directory without clobbering each other
+string tlFile, resultFile;
 
 // Aborts if the last system() call (running sumo-wrapper) did not succeed
 void checkExecution(int ret)
@@ -59,7 +66,7 @@ void generateSolution(vector<unsigned> &solution, const cInstance &c)
 
 void writeSolutionFile(const vector<unsigned> &solution, const cInstance &c)
 {
-	ofstream f("tl.txt");
+	ofstream f(tlFile.c_str());
 	for(int i = 0; i < c.getTotalNumberOfPhases(); i++)
 		f <<  solution[i] << " ";
 	f.close();
@@ -67,7 +74,7 @@ void writeSolutionFile(const vector<unsigned> &solution, const cInstance &c)
 
 void readFitnessFile(float &fitness)
 {
-	ifstream f("result.txt");
+	ifstream f(resultFile.c_str());
 	string s;
 	for(int i = 0; i < 6; i++) // skip lines
 		getline(f,s);
@@ -83,7 +90,8 @@ int main(int argc, char **argv)
 	string command;
 	cInstance c;
 
-	srand(time(0));
+	srand(time(0) ^ getpid()); // XOR with the PID: time(0) alone has 1s resolution and would give
+	                           // the same sequence to processes launched in the same second
 
 	if(argc < 3)
 	{
@@ -95,7 +103,9 @@ int main(int argc, char **argv)
 
 	steps = atoi(argv[2]);
 
-	command = "./sumo-wrapper " + string(argv[1]) + " " + "tl.txt result.txt";
+	tlFile = "tl_" + to_string(getpid()) + ".txt";
+	resultFile = "result_" + to_string(getpid()) + ".txt";
+	command = "./sumo-wrapper " + string(argv[1]) + " " + tlFile + " " + resultFile;
 
 	generateSolution(solution, c);
 	writeSolutionFile(solution, c);
@@ -122,6 +132,9 @@ int main(int argc, char **argv)
 	for(int i = 0; i < c.getTotalNumberOfPhases(); i++)
 		cout << best_sol[i] << " ";
 	cout << endl << "Fitness: " << best_fit << endl;
+
+	remove(tlFile.c_str());
+	remove(resultFile.c_str());
 
 	return 0;
 }
