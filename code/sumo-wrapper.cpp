@@ -284,8 +284,8 @@ void analyzeTripInfo(const cInstance &c, time_t t, tStatistics &s)
 			getPairMap(line, m);
 	
 			s.numVeh++;
-			s.duration += atof(m["duration"].c_str()); 
-			s.stops += atof(m["waitSteps"].c_str()); 
+			s.duration += atof(m["duration"].c_str());
+			s.stops += atof(m["waitingTime"].c_str());
 		}
 		else if(isSubString(line,"CO_abs=",position))
 		{
