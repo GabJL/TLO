@@ -109,6 +109,7 @@ int main(int argc, char **argv)
 	if(ret == -1 || !WIFEXITED(ret) || WEXITSTATUS(ret) != 0)
 	{
 		cerr << "Error: SUMO execution failed (command: " << cmd << ")" << endl;
+		removeTempFiles(instance);
 		exit(-1);
 	}
 	//t3 = time(0);

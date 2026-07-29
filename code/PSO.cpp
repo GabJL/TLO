@@ -107,6 +107,8 @@ void checkExecution(int ret)
 	if(ret == -1 || !WIFEXITED(ret) || WEXITSTATUS(ret) != 0)
 	{
 		cerr << "Error: sumo-wrapper execution failed" << endl;
+		remove(tlFile.c_str());
+		remove(resultFile.c_str());
 		exit(-1);
 	}
 }
