@@ -1,2 +1,2 @@
 clean:
-	rm malaga.add.xml malaga-*
+	rm -f malaga.add.xml malaga-*

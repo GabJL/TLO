@@ -1,2 +1,2 @@
 clean:
-	rm stockholm.add.xml stockholm-*
+	rm -f stockholm.add.xml stockholm-*

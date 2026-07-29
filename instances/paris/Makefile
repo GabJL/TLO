@@ -1,2 +1,2 @@
 clean:
-	rm paris.add.xml paris-*
+	rm -f paris.add.xml paris-*

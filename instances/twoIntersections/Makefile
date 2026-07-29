@@ -1,2 +1,2 @@
 clean:
-	rm twoIntersections.add.xml twoIntersections-*
+	rm -f twoIntersections.add.xml twoIntersections-*

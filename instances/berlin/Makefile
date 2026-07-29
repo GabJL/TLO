@@ -1,2 +1,2 @@
 clean:
-	rm berlin.add.xml berlin-*
+	rm -f berlin.add.xml berlin-*
