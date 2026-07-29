@@ -6,6 +6,7 @@
 #include <ctime>
 #include <sstream>
 #include <map>
+#include <sys/wait.h>
 #include "cInstance.hpp"
 #include "simpleXMLParser.hpp"
 
@@ -93,7 +94,12 @@ int main(int argc, char **argv)
 	//cout << "Executing sumo ..." << endl;
 
 	//t2 = time(0);
-	system(cmd.c_str());
+	int ret = system(cmd.c_str());
+	if(ret == -1 || !WIFEXITED(ret) || WEXITSTATUS(ret) != 0)
+	{
+		cerr << "Error: SUMO execution failed (command: " << cmd << ")" << endl;
+		exit(-1);
+	}
 	//t3 = time(0);
 
 	//cout << "Obtaining statistics ..." << endl;
