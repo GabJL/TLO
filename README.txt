@@ -8,8 +8,33 @@ PROVIDED TOOL:
 --------------
 1) sumo-wrapper: executes SUMO on a concrete instance using a provided TL configuration and gets statistical values about the execution
 2) genInstanceFile: builds the instance file used by sumo-wrapper and maybe your algorithm
-3) RS: random search
 4) getOriginalTL: obtains the original TL configuration from network file
+
+IMPLEMENTED OPTIMIZATION ALGORITHMS:
+------------------------------------
+The repository provides the following optimization algorithms for traffic-light configuration:
+
+1) RS: Random Search.
+2) HC: Hill Climbing. At each iteration, it modifies one traffic-light phase and accepts the new solution when it improves the fitness value.
+3) ssGA: Steady-State Genetic Algorithm.
+4) PSO: Particle Swarm Optimization.
+
+All algorithms optimize the duration of the configurable traffic-light phases. Pedestrian and transition phases containing yellow lights are assigned fixed durations and are not modified during the search.
+
+AVAILABLE INSTANCES:
+--------------------
+The following SUMO instances are included:
+
+* berlin
+* malaga
+* paris
+* stockholm
+* twoIntersections
+
+For each instance:
+
+* The instances/<instance>/ directory contains the SUMO network and route files.
+* The instanceFiles/<instance>.txt file contains the instance description used by sumo-wrapper and the optimization algorithms.
 
 INSTANCE FILE CONTENT:
 ----------------------
